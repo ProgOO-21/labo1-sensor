@@ -4,9 +4,9 @@
 
 using namespace std;
 
-string colorToString(Color c)
+/*string colorToString(Color c)
 {
-}
+}*/
 
 // PowerModule class
 
