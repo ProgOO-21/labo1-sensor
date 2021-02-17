@@ -3,25 +3,31 @@
 #include <iostream>
 
 #include "sensors.h"
+#include "log.h"
 
 using namespace std;
 
 class BaseStation {
-   public:
+  public:
+  BaseStation();
     string name;
 
-    void addTempSensor(string name, Color color);
-    void addHumiditySensor(string name, Color color);
+    void addTempSensor(string name, Color color = Color::Red);
+    void addHumiditySensor(string name, Color color = Color::Blue);
 
     void measure();
 
-    TemperatureSensor& getTemperatureSensor(int id){
-        return temps[id];
+    void setLogModule(Log* log){
+        pLog = log;
     }
 
-   private:
-    TemperatureSensor temps[10];
+    TemperatureSensor& getTemperatureSensor(int id) { return temps[id]; }
+
+  private:
+    static const int nbrMaxSensors = 10;
+    TemperatureSensor temps[nbrMaxSensors];
     int nbr_temp;
-    HumiditySensor hum[10];
+    HumiditySensor hum[nbrMaxSensors];
     int nbr_hum;
+    Log* pLog;
 };

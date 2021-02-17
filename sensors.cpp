@@ -1,6 +1,6 @@
-#include <iostream>
-
 #include "sensors.h"
+
+#include <iostream>
 
 using namespace std;
 
@@ -22,7 +22,14 @@ string colorToString(Color c)
 
 // PowerModule class
 
-string PowerModule::toString() { return "Power voltage : " + std::to_string(this->voltage); }
+PowerModule::PowerModule(){
+    voltage = 0;
+}
+
+string PowerModule::toString()
+{
+    return "Power voltage : " + std::to_string(this->voltage);
+}
 
 // TemperatureSensor class
 
@@ -32,13 +39,21 @@ TemperatureSensor::TemperatureSensor(Color col, string name)
 
 string TemperatureSensor::toString()
 {
-    return "Name : " + name + " / Color : " + colorToString(color) + " / " + power.toString();
+    return "Name : " + name + " / Color : " + colorToString(color) + " / " +
+           power.toString();
 }
 
-void TemperatureSensor::measure() { cout << "On mesure la température" << endl; }
+void TemperatureSensor::measure()
+{
+    cout << "Le capteur : " << name << " mesure la température" << endl;
+}
 
 // HumiditySensor class
 
-HumiditySensor::HumiditySensor(Color col, string name) : color(col), name(name) {}
+HumiditySensor::HumiditySensor(Color col, string name) : color(col), name(name)
+{}
 
-void HumiditySensor::measure() { cout << "On mesure l'humidité" << endl; }
+void HumiditySensor::measure()
+{
+    cout << "Le capteur : " << name << " mesure l'humidité" << endl;
+}

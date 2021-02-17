@@ -2,32 +2,40 @@
 
 using namespace std;
 
-int saisieInt(string message){
+int saisieInt(string message)
+{
     cout << message << endl;
     int val = 0;
-    do{
+    do
+    {
         cin >> val;
 
-        if(cin.fail()){
-            cout << "Saisie incorrecte, recommencez : ";  
-            cin.clear();  
+        if (cin.fail())
+        {
+            cout << "Saisie incorrecte, recommencez : ";
+            cin.clear();
             cin.ignore('\n');
         }
-        else{
+        else
+        {
             return val;
         }
-    }while(true);
+    } while (true);
 }
 
 int main()
 {
     cout << "Labo 1" << endl;
 
+    Log log;
+
     BaseStation bs;
+    bs.setLogModule(&log);
     bs.addHumiditySensor("Hum 1", Color::Red);
-    bs.addTempSensor("Temp 1", Color::Black);
+    bs.addTempSensor("Temp 1");
     bs.addTempSensor("Temp 2", Color::White);
 
+    bs.measure();
     bs.measure();
 
     // Alias pour simplifier l'écriture

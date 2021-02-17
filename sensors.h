@@ -16,14 +16,12 @@ string colorToString(Color c);
 
 class PowerModule {
    public:
+    PowerModule();
     string toString();
-    int getVoltage(){
-        return voltage;
-    }
-    void setVoltage(int value){
-        voltage = value;
-    }
-private:
+    int getVoltage() { return voltage; }
+    void setVoltage(int value) { voltage = value; }
+
+   private:
     int voltage;
 };
 
@@ -37,13 +35,13 @@ class TemperatureSensor {
     PowerModule power;
 
     string toString();
+
     void measure();
-    double getTemperature(){
-        return temperature;
-    }
+
+    double getTemperature() { return temperature; }
 
    private:
-    double temperature;
+    double temperature = 0.0;
 };
 
 class HumiditySensor {
@@ -55,9 +53,8 @@ class HumiditySensor {
     string name;
 
     void measure();
-    double getHumidity(){
-        return humidity;
-    }
+
+    double getHumidity() { return humidity; }
 
    private:
     double humidity;
