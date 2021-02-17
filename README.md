@@ -12,12 +12,18 @@ Le but de ce laboratoire est de prendre en main les bases de la notion objet.
 
 Vous allez devoir implémenter les classes qui sont représentées sur ce diagramme.
 
+## Important
+- Les classes doivent être déclarées dans les headers `.h`
+- Respecter les accès depuis le diagramme
+- Toutes les variables doivent être initialisées
+  - Constructeur ou déclaration
+
 #### Application
 Représente la fonction `main`
 
 #### BaseStation
 - Tableau de `TemperatureSensor` et de `HumiditySensor`
-- `add...` : Permet d'ajouter un capteur à la liste. Il faut donc une variable qui nous permet de connaître le nombre d'éléments.
+- `add...` : Permet d'ajouter un capteur à la liste. Il faut donc une variable qui nous permet de connaître le nombre d'éléments. On doit contrôler la capacité du tableau.
 - On définit le nombre max d'éléments avec une `constante`
 - `measure` : Il faut ajouter du code pour parcourir tout les 
 capteurs de température et d'humidité est appeler pour chacun la
@@ -26,6 +32,7 @@ la méthode `log` du module `Log`. `log("Start measure")`
 - Comme on le voit sur le diagramme, cette classe utilise le module `log`. Il faut donc avoir un lien sur cet objet dans la classe.
 - `setLogModule` : Permet d'affecter le lien entre l'objet `log` et
 la classe.
+- Il faut un constructeur qui va initialiser les variables.
 
 #### PowerModule
 - Classe avec une seul propriété que l'on peut lire ou écrire
