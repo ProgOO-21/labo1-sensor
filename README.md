@@ -74,7 +74,7 @@ Name : Temp 1 / Color : red / Power voltage : 12
  - Remplacer les tableaux de capteur dans la classe `BaseStation`, par **un** tableau de capteur générique avec des éléments `Sensor`.
  - Remplacer les méthodes pour ajouter un capteur, par une méthode qui permet d'ajouter un capteur générique de type `Sensor`
  - Pour ajouter un capteur, on doit obligatoirement donner un nom, mais la couleur est optionnelle. Par défaut on utilise la couleurs `noire`
- - Ajouter une méthode pour supprimer un `Sensor` 
+ - Ajouter une méthode pour supprimer le dernier `Sensor` dans la liste
  - Lorsque l'on appelle la méthode `measure` dans la classe `BaseStation`, il faut parcourir le tableau de capteur et appeler pour chacun la méthode `measure`
  - Ajouter une méthode dans `BaseStation` qui permet de récupérer une référence sur un capteur par rapport à sa position dans le tableau :
    - `Sensor& getSensor(index)`
