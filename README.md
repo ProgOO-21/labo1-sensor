@@ -58,3 +58,33 @@ Le capteur : Temp 2 mesure la température
 Le capteur : Hum 1 mesure l'humidité
 Name : Temp 1 / Color : red / Power voltage : 12
  ```
+ 
+  ## Partie 2
+ *Vous pouvez changer le nom des méthodes et propriétés proposées.*
+
+ - Ajouter une classe `Sensor` qui est une classe parente pour les capteurs d'humidité et de température.
+ - La propriété `name` doit se trouver dans la classe `Sensor`
+ - La propriété `name` doit être `const`
+ - Dans la classe `Sensor` ajouter une méthode `getName` qui permet de retourner une chaîne de caractère : `Le capteur : <name>`
+ - La classe `Sensor` **ne doit pas** avoir de constructeur par défaut (sans paramètre). On doit au moins fournir le nom lors de la construction du `Sensor`.
+ - Implémenter une méthode `measure` dans le capteur de température pour afficher :
+ `la température du capteur <name> est : <temperature> °C`
+ - Implémenter une méthode `measure` dans le capteur d'humidité pour afficher :
+ `l'humidité du capteur <name> est : <humidity> °C`
+ - Remplacer les tableaux de capteur dans la classe `BaseStation`, par **un** tableau de capteur générique avec des éléments `Sensor`.
+ - Remplacer les méthodes pour ajouter un capteur, par une méthode qui permet d'ajouter un capteur générique de type `Sensor`
+ - Pour ajouter un capteur, on doit obligatoirement donner un nom, mais la couleur est optionnelle. Par défaut on utilise la couleurs `noire`
+ - Ajouter une méthode pour supprimer un `Sensor` 
+ - Lorsque l'on appelle la méthode `measure` dans la classe `BaseStation`, il faut parcourir le tableau de capteur et appeler pour chacun la méthode `measure`
+ - Ajouter une méthode dans `BaseStation` qui permet de récupérer une référence sur un capteur par rapport à sa position dans le tableau :
+   - `Sensor& getSensor(index)`
+   - Dans le main on doit pouvoir exécuter un code du genre :
+     ```C
+     Sensor& s = bs.getSensor(2);
+     s.getName();
+     s.measure();
+     ```
+- Ajouter une méthode `printSensorsList` dans `BaseStation` qui affiche la liste de tout les capteurs. (On doit appeler la méthode `getName`). Ajouter l'appelle de cette méthode dans le `main`
+
+#### Réflexion
+Dans la méthode `measure` de `BaseStation`, il faut que si c'est un capteur de température, on doit aussi appeler la méthode `log`. Comment implémenter cette fonctionnalité ?
