@@ -88,3 +88,8 @@ Name : Temp 1 / Color : red / Power voltage : 12
 
 #### Réflexion
 Dans la méthode `measure` de `BaseStation`, il faut que si c'est un capteur de température, on doit aussi appeler la méthode `log`. Comment implémenter cette fonctionnalité ?
+
+## Partie 3
+- Implémenter une propriété statique dans la classe `Sensor` pour compter le nombre d'instance de capteur construite dans l'application.
+- Ajouter un destructeur virtuel dans la classe `Sensor` (Polycopié slide 22) pour éviter les `warnings` à la compilation.
+- Utiliser un `dynamic_cast` pour résoudre le problème de la méthode `log` demandée dans la partie `#2`
